@@ -242,7 +242,7 @@ if __name__ == "__main__":
     best_model, 
     df_with_features, 
     next_circuit_name, 
-    actual_grid_position,   
+    actual_grid_position,  
     scaler=scaling_to_use
     )
 

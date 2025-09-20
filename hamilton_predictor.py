@@ -111,7 +111,7 @@ def explore_clean_data(df):
     df_clean = df_clean.drop(columns=['status'])
     
     print("\n8. Resetting index...")
-    df_clean = df_clean.reset_index(drop=True)  # FIXED: Using drop=True parameter
+    df_clean = df_clean.reset_index(drop=True) 
     
     # 4. FINAL CHECK
     print("\n9. Final Cleaned DataFrame Info:")
@@ -142,7 +142,7 @@ def create_features(input_df):
     #Circuit history features
 
     print("Creating 'circuit_avg-finish', feature...")
-    df['circuit_avg_finish'] = np.nan  # Initialize with NaN
+    df['circuit_avg_finish'] = np.nan 
 
     for circuit in df['circuit'].unique():
         circuit_mask = df['circuit'] == circuit
@@ -238,8 +238,6 @@ def prepare_for_next_race_prediction(df_with_features):
     # Sort by date (year and round)
     df = df_with_features.sort_values(by=['year', 'round']).reset_index(drop=True)
     
-    # For next-race prediction, we want to use ALL available data
-    # The model will learn patterns from all seasons
     feature_columns = ['grid_position', 'circuit_avg_finish', 'recent_form', 'previous_finish']
     target_column = 'podium'
     
