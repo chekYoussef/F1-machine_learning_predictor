@@ -124,7 +124,6 @@ def explore_clean_data(df):
     
     return df_clean
 
-# Let's run it on our collected data
 print("Starting data cleaning process...")
 cleaned_data = explore_clean_data(historical_data)
 
@@ -185,11 +184,11 @@ def prepare_for_model(df_with_features):
     """
     print("=== STEP 5: PREPARING FOR MACHINE LEARNING ===")
     
-    # 1. DEFINE OUR FEATURES
+    # 1. DEFINE FEATURES
     print("1. Selecting features for prediction...")
     feature_columns = ['grid_position', 'circuit_avg_finish', 'recent_form', 'previous_finish']
     
-    # 2. DEFINE OUR TARGET
+    # 2. DEFINE TARGET
     print("2. Defining target variable...")
     target_column = 'podium'  # 1 = podium, 0 = no podium
     
@@ -211,16 +210,16 @@ def prepare_for_model(df_with_features):
     print(f"   - Using {len(feature_columns)} features: {feature_columns}")
     print(f"   - Predicting: {target_column}")
     print(f"   - Total samples: {len(X)}")
-    print(f"   - Podium races: {y.sum()}")  # Hint: .sum() to count 1s
+    print(f"   - Podium races: {y.sum()}") 
     print(f"   - Non-podium races: {len(y) - y.sum()}")
     print(f"   - Podium rate: {y.mean():.2%}")
     
     print("\nFirst 5 rows of features (X):")
-    print(X.head())  # Hint: Show first 5 rows
+    print(X.head()) 
     
     return X, y, feature_columns
 
-# Let's run it on our feature-engineered data
+
 print("Preparing data for machine learning...")
 X, y, feature_names = prepare_for_model(df_with_features)
 # Verify we have 2025 data
