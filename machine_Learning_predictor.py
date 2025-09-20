@@ -1,5 +1,3 @@
-# ===== IMPORTS =====
-# Import your data preparation functions
 import fastf1
 from hamilton_predictor import (
     get_hamilton_historical_data,
@@ -236,7 +234,6 @@ if __name__ == "__main__":
     next_circuit_name = "Azerbaijan"
     actual_grid_position = 12
 
-    # Use your function
     scaling_to_use = scaler if uses_scaling else None
     probability, features = make_prediction_with_actual_data(
     best_model, 
